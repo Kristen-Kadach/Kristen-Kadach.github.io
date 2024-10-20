@@ -189,8 +189,6 @@ defaults:
   - scope:
       path: ""
       type: tabs # see `site.collections`
-  - scope:
-      path: assets/favicon
     values:
       layout: page
       permalink: /:title/
