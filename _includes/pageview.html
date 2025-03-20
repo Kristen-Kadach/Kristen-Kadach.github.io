@@ -1,0 +1,19 @@
+{% if site.pageviews.provider == "google" %}
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.analytics.google.id }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ site.analytics.google.id }}', { 'send_page_view': true });
+
+    function fetchPageViews() {
+      let count = localStorage.getItem("pv-{{ page.url }}");
+      if (count) {
+        document.getElementById('pv-counter').innerText = count;
+      } else {
+        document.getElementById('pv-counter').innerText = "Tracking...";
+      }
+    }
+    fetchPageViews();
+  </script>
+{% endif %}
